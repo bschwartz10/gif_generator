@@ -1,4 +1,5 @@
-<%= flash[:success] %>
 <h1>Welcome <%= @user.email %> </h1>
 
-<%= link_to "Log Out", login_path, method: 'delete' %>
+<div class="logout">
+  <%= link_to "Log Out", login_path, method: 'delete' %>
+</div>
