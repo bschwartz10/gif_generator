@@ -20,4 +20,9 @@ class SessionsController < ApplicationController
   # and send them back to the form to try again
     end
   end
+
+  def destroy
+    session[:user_id] = nil
+    redirect_to login_path
+  end
 end
