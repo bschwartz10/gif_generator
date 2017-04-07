@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
       User.new(email: "GUEST")
     end
   end
+
+  def current_admin?
+    current_user && current_user.admin?
+  end
 end
