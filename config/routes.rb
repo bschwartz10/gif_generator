@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  namespace :admin do
+    resources :categories
+  end
+
   resources :users, only: [:new, :create, :show]
 
   get '/login', to: 'sessions#new'
