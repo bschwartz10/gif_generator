@@ -15,5 +15,6 @@ RSpec.describe "Admin visits new categories page" do
     expect(current_path).to eq category_path(Category.last)
     expect(Gif.count).to eq 1
     expect(page).to have_content "sports gifs"
+    save_and_open_page
   end
 end
