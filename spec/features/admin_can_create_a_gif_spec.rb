@@ -9,11 +9,11 @@ RSpec.describe "Admin visits new categories page" do
 
     visit new_admin_category_path
 
-    fill_in "category[name]", with: "funny"
+    fill_in "category[name]", with: "sports"
     click_on "Create Category"
 
     expect(current_path).to eq category_path(Category.last)
-    expect Gif.where(id: 1, image_url: "http://giphy.com/embed/bKrynkeJjTKow").to exist
-    expect(page).to have_content "funny gifs"
+    expect(Gif.count).to eq 1
+    expect(page).to have_content "sports gifs"
   end
 end
