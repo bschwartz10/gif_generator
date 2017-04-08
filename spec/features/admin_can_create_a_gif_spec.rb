@@ -17,4 +17,18 @@ RSpec.describe "Admin visits new categories page" do
     expect(page).to have_content "sports gifs"
     expect(page).to have_css("iframe")
   end
+
+  it "doesn't allow admin to create a new category with the same name" do
+    category = Category.create(name: "sports")
+    admin = User.create(first_name: "brett", last_name: "schwartz", email: "bschwartz@example.com", password: "password", password_confirmation: "password", role: 1)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+    visit new_admin_category_path
+
+    fill_in "category[name]", with: "sports"
+    click_on "Create Category"
+
+    expect(current_path).to eq category_path(category)
+  end
 end
