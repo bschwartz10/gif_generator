@@ -51,7 +51,7 @@ describe User do
     end
 
     it "is valid without a role" do
-      user = User.create(first_name: "brett", last_name: "schwartz", email: "bschwartz@example.com", password: "password", password_confirmation: "password", role: 0)
+      user = User.create(first_name: "brett", last_name: "schwartz", email: "bschwartz@example.com", password: "password", password_confirmation: "password", role: 1)
       expect(user).to be_valid
     end
 
