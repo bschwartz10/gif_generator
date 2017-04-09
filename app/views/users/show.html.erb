@@ -1,5 +1,16 @@
 <h1>Welcome <%= @user.email %> </h1>
 
+<% @user.gifs.each do |gif| %>
+
+<div class="gifs">
+  <iframe width='640' height='390' src="<%= gif.image_url %>" frameborder="0"></iframe><br/>
+</div>
+
+<div class="favorites">
+  <%= button_to "Remove from favorites", favorite_gif_path(gif, type: "unfavorite"), method: :put %>
+</div>
+
+<% end %>
 <div class="logout">
   <%= link_to "Log Out", login_path, method: 'delete' %>
 </div>

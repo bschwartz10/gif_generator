@@ -8,7 +8,8 @@
   </div>
 
   <div class="favorites">
-    <%= button_to "Add to favorites", user_favorites_path(@user), method: :post %>
+    <%= button_to "Add to favorites", favorite_gif_path(gif, type: "favorite"), method: :put %>
+    <%= button_to "Remove from favorites", favorite_gif_path(gif, type: "unfavorite"), method: :put %>
   </div>
 
   <% end %>

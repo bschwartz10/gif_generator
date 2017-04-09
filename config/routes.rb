@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index, :show]
   resources :users, only: [:new, :create, :show] do
-    resources :favorites, only: [:create]
+    # resources :favorites, only: [:create]
+  end
+
+  resources :gifs, only:[:put] do
+    put :favorite, on: :member
   end
 
   get '/login', to: 'sessions#new'
