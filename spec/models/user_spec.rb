@@ -61,6 +61,13 @@ describe User do
 
       expect(user2).to be_invalid
     end
+  end
 
+  context "relationships" do
+    it "user has many gifs" do
+      user = User.create(first_name: "brett", last_name: "schwartz", email: "bschwartz@example.com", password: "password", password_confirmation: "password", role: 0)
+
+      expect(user).to respond_to(:gifs)
+    end
   end
 end

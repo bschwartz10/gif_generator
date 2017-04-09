@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   end
 
   resources :categories, only: [:index, :show]
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show] do
+    resources :favorites, only: [:create]
+  end
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
