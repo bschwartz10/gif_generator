@@ -14,7 +14,7 @@ RSpec.describe "User visits a categories show page" do
 
       expect(current_path).to eq(category_path(category))
       expect(page).to have_content("You favorited a #{category.name}'s gif!")
-      expect(user.gifs.count).to eq 1
+      expect(user.favorites.count).to eq 1
     end
   end
 end
