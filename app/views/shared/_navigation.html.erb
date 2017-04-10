@@ -12,6 +12,14 @@
       <% if current_user.admin? %>
       <a class="navbar-brand" href="/admin/categories/new">Create New Category</a>
       <% end %>
+      <ul class="nav navbar-nav navbar-right">
+      <% if session[:user_id] != nil %>
+        <li><%= link_to "My Page", user_path(session[:user_id]) %></li>
+      <% end %>
+      <% if session[:user_id].nil? %>
+        <li><%= link_to "Log in", login_path %></li>
+      <% end %>
+      </ul>
     </div>
   </div><!-- /.container-fluid -->
 </nav>
