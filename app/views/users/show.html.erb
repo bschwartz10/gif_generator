@@ -7,10 +7,10 @@
 </div>
 
 <div class="favorites">
-  <%= button_to "Remove from favorites", favorite_gif_path(gif, type: "unfavorite"), method: :put %>
+  <%= button_to "Remove from favorites", favorite_gif_path(gif, type: "unfavorite"), method: :put, class: 'btn btn-danger' %>
 </div>
 
 <% end %>
 <div class="logout">
-  <%= link_to "Log Out", login_path, method: 'delete' %>
+  <p><%= link_to "Log Out", login_path, method: 'delete', class: 'btn btn-warning' %></p>
 </div>
