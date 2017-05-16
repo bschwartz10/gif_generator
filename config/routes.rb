@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  root 'users#show'
   namespace :admin do
     resources :categories, only: [:new, :create, :destroy]
   end
